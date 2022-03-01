@@ -35,4 +35,5 @@ body {
   /* font-size */
   --fontSize-main: 13px;
   --fontSize-medium: 16px;
+  --fontSize-large: 20px;
 }
