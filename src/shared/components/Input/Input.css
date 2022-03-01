@@ -12,7 +12,7 @@
 }
 
 .SearchIcon {
-  width: var(--icon-m);
-  height: var(--icon-m);
+  width: var(--icon-l);
+  height: var(--icon-l);
   margin: var(--s);
 }

@@ -19,20 +19,12 @@
   font-weight: var(--medium);
 }
 
-.Row-SpaceBetween {
-  justify-content: space-between;
-}
-
-.Row-AlignItemsCenter {
-  align-items: center;
-}
-
 .Grid {
   display: grid;
   row-gap: var(--s);
   column-gap: var(--s);
-  grid-template-columns: auto auto auto;
-  margin: var(--s) 0;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: var(--l) 0;
 }
 
 .CompanyRow-Wrapper {

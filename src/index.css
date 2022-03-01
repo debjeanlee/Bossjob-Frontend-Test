@@ -23,7 +23,8 @@ body {
 
   /* icons */
   --icon-s: 16px;
-  --icon-m: 24px;
+  --icon-m: 20px;
+  --icon-l: 24px;
 
   /* font-family */
   --font-main: "Kumbh Sans", sans-serif;
@@ -37,4 +38,14 @@ body {
   --fontSize-main: 13px;
   --fontSize-medium: 16px;
   --fontSize-large: 20px;
+}
+
+/* utils */
+
+.Row-SpaceBetween {
+  justify-content: space-between;
+}
+
+.Row-AlignItemsCenter {
+  align-items: center;
 }
