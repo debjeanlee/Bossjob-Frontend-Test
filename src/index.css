@@ -30,4 +30,8 @@ body {
   --normal: 300;
   --medium: 500;
   --heavy: 700;
+
+  /* font-size */
+  --fontSize-main: 13px;
+  --fontSize-medium: 16px;
 }
