@@ -23,7 +23,11 @@ body {
   --icon-s: 16px;
   --icon-m: 24px;
 
+  /* font-family */
+  --font-main: "Kumbh Sans", sans-serif;
+
   /* font-weight */
   --normal: 300;
   --medium: 500;
+  --heavy: 700;
 }
