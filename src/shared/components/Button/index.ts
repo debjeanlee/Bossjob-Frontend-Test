@@ -1,3 +1,3 @@
-import Divider from "./Button";
+import Button from "./Button";
 
-export default Divider;
+export default Button;
