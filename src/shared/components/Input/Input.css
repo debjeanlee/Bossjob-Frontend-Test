@@ -1,0 +1,15 @@
+.InputWrapper {
+  display: flex;
+}
+
+.SearchInput {
+  color: var(--grey-3);
+  width: 100%;
+  border: none;
+}
+
+.SearchIcon {
+  width: var(--icon-m);
+  height: var(--icon-m);
+  margin: var(--margin-s);
+}
