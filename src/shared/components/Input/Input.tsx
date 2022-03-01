@@ -1,4 +1,5 @@
 import React, { ChangeEvent, ReactNode } from "react";
+import Row from "../Row";
 import "./Input.css";
 
 interface InputProps {
@@ -15,8 +16,7 @@ const Input = ({
   onChange,
 }: InputProps) => {
   return (
-    <div
-      className="InputWrapper"
+    <Row
       style={{ flexDirection: iconPosition === "left" ? "row" : "row-reverse" }}
     >
       <div className="SearchIcon">{icon}</div>
@@ -26,7 +26,7 @@ const Input = ({
         className="SearchInput"
         onChange={onChange}
       />
-    </div>
+    </Row>
   );
 };
 
