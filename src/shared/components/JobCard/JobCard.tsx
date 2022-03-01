@@ -9,6 +9,7 @@ interface JobCardProps {
 }
 
 const JobCard = ({ job }: JobCardProps) => {
+  const updatedAt = new Date(job.updated_at);
   return (
     <div>
       <Divider />
@@ -20,6 +21,17 @@ const JobCard = ({ job }: JobCardProps) => {
         </h3>
       </Row>
       <div className="Grid"></div>
+      <Row className="Row-SpaceBetween Row-AlignItemsCenter">
+        <Row className="Row-AlignItemsCenter">
+          <img
+            src={job.company_logo}
+            className="CompanyLogo"
+            alt="company logo"
+          />
+          <p className="CompanyName">{job.company_name}</p>
+        </Row>
+        <p className="TimeString">{updatedAt.toTimeString()}</p>
+      </Row>
     </div>
   );
 };
