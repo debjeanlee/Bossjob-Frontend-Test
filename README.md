@@ -1,17 +1,18 @@
 # Bossjob Front End Test
 
-- [To do list](#to-do-list) 
+- [To do list](#to-do-list)
 - [Credits](#credits)
 
 ## To do list
 
 - [x] list colour variables
 - [x] get icons
-- [ ] create UI components
-- [ ] display first 12 jobs
-- [ ] add search bar (job title/company name)
+- [x] create UI components
+- [x] create pagination component
 - [ ] use redux && redux-saga to store application state
-- [ ] create pagination component
+- [ ] display first 12 jobs
+- [ ] add functionality to search bar (job title/company name)
+- [ ] add functionality to pagination
 
 ## Credits
 

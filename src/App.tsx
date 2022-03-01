@@ -4,6 +4,7 @@ import { mockJob } from "./mocks/mockJob";
 import Divider from "./shared/components/Divider";
 import Header from "./shared/components/Header";
 import JobCard from "./shared/components/JobCard";
+import Pagination from "./shared/components/Pagination";
 import SearchSection from "./shared/components/SearchSection/SearchSection";
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
           <p>1231 jobs found</p>
           <Divider style={{ marginBottom: "var(--m)" }} />
           <JobCard job={mockJob} />
+          <Pagination totalPages={12} />
         </div>
       </div>
     </div>
