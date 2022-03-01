@@ -3,7 +3,12 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import React from "react";
 import { Job } from "../../../types/Job";
 import Divider from "../Divider";
+import IconLabel from "../IconLabel";
 import Row from "../Row";
+import { ReactComponent as LocationPin } from "../../../assets/icons/LocationPin.svg";
+import { ReactComponent as Briefcase } from "../../../assets/icons/Briefcase.svg";
+import { ReactComponent as AcademicCap } from "../../../assets/icons/AcademicCap.svg";
+import { ReactComponent as Clock } from "../../../assets/icons/Clock.svg";
 import "./JobCard.css";
 
 interface JobCardProps {
@@ -23,7 +28,19 @@ const JobCard = ({ job }: JobCardProps) => {
           {String(job.salary_range_to).slice(0, 2)}k
         </h3>
       </Row>
-      <div className="Grid"></div>
+      <div className="Grid">
+        <IconLabel icon={<LocationPin />} label={job.job_location} />
+        <IconLabel
+          icon={<Briefcase width="20px" height="20px" />}
+          label={job.xp_lvl}
+        />
+        <div />
+        <IconLabel icon={<AcademicCap />} label={job.degree} />
+        <IconLabel
+          icon={<Clock width="20px" height="20px" />}
+          label={job.job_type}
+        />
+      </div>
       <Row className="Row-SpaceBetween Row-AlignItemsCenter CompanyRow-Wrapper">
         <Row className="Row-AlignItemsCenter">
           <img

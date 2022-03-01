@@ -1,0 +1,12 @@
+.Icon {
+  width: var(--icon-l);
+  height: var(--icon-l);
+  margin: 0 var(--m) 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Label {
+  margin: 0;
+}
