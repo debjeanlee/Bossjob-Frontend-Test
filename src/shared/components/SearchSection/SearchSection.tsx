@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ReactComponent as SearchIcon } from "../../../assets/icons/Search.svg";
+import Divider from "../Divider";
 import Input from "../Input";
 import "./SearchSection.css";
 
@@ -20,6 +21,7 @@ const SearchSection = () => {
           onChange={(e) => setInput(e.target.value)}
         />
       </form>
+      <Divider />
     </div>
   );
 };

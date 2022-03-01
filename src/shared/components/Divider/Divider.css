@@ -1,0 +1,4 @@
+.Divider {
+  margin: var(--m) 0;
+  border-bottom: 1px solid var(--grey-2);
+}
