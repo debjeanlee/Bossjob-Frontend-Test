@@ -11,11 +11,11 @@ interface JobCardProps {
 }
 
 dayjs.extend(relativeTime);
+
 const JobCard = ({ job }: JobCardProps) => {
   const updatedAt = dayjs(job.updated_at);
   return (
     <div>
-      <Divider />
       <Row className="Row-SpaceBetween">
         <h3 className="JobTitle">{job.job_title}</h3>
         <h3 className="PayRange">
@@ -24,7 +24,7 @@ const JobCard = ({ job }: JobCardProps) => {
         </h3>
       </Row>
       <div className="Grid"></div>
-      <Row className="Row-SpaceBetween Row-AlignItemsCenter">
+      <Row className="Row-SpaceBetween Row-AlignItemsCenter CompanyRow-Wrapper">
         <Row className="Row-AlignItemsCenter">
           <img
             src={job.company_logo}
@@ -35,6 +35,7 @@ const JobCard = ({ job }: JobCardProps) => {
         </Row>
         <p className="TimeString">{updatedAt.fromNow()}</p>
       </Row>
+      <Divider />
     </div>
   );
 };

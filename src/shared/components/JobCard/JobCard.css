@@ -32,6 +32,11 @@
   row-gap: var(--s);
   column-gap: var(--s);
   grid-template-columns: auto auto auto;
+  margin: var(--s) 0;
+}
+
+.CompanyRow-Wrapper {
+  margin: var(--s) 0 0;
 }
 
 .CompanyLogo {
