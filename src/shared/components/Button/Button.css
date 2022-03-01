@@ -1,0 +1,16 @@
+.Button {
+  height: 38px;
+  border-radius: 19px;
+  width: 100%;
+  border: 1px solid var(--blue);
+  font-family: var(--font-main);
+  color: var(--blue);
+  font-weight: var(--heavy);
+  font-size: var(--large);
+  background-color: inherit;
+}
+
+.Button:active {
+  background-color: var(--blue);
+  color: white;
+}

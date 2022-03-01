@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ReactComponent as SearchIcon } from "../../../assets/icons/Search.svg";
+import Button from "../Button";
 import Divider from "../Divider";
 import Input from "../Input";
 import "./SearchSection.css";
@@ -22,6 +23,7 @@ const SearchSection = () => {
         />
       </form>
       <Divider />
+      <Button label="Filter results" onClick={() => {}} />
     </div>
   );
 };
