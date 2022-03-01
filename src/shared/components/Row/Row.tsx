@@ -9,7 +9,7 @@ interface RowProps {
 }
 
 const Row = ({ className, children, ...rest }: RowProps) => (
-  <div className={`Row ${className}`} {...rest}>
+  <div className={`Row ${className ? className : ""}`} {...rest}>
     {children}
   </div>
 );
