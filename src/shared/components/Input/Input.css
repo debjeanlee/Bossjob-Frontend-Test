@@ -18,5 +18,5 @@
 .SearchIcon {
   width: var(--icon-m);
   height: var(--icon-m);
-  margin: var(--margin-s);
+  margin: var(--s);
 }

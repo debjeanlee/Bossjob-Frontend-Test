@@ -16,8 +16,8 @@ body {
   --black: #393939;
 
   /* margins */
-  --padding: 1.5rem;
-  --margin-s: 0.5rem;
+  --m: 1.5rem;
+  --s: 0.5rem;
 
   /* icons */
   --icon-s: 16px;
