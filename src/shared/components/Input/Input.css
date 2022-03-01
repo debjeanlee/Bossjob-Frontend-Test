@@ -6,6 +6,13 @@
   color: var(--grey-3);
   width: 100%;
   border: none;
+  font-family: var(--font-main);
+  font-weight: var(--heavy);
+  letter-spacing: 0.3px;
+}
+
+.SearchInput:focus {
+  outline: none;
 }
 
 .SearchIcon {
