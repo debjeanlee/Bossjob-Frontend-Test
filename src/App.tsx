@@ -1,6 +1,9 @@
 import React from "react";
 import "./App.css";
+import { mockJob } from "./mocks/mockJob";
+import Divider from "./shared/components/Divider";
 import Header from "./shared/components/Header";
+import JobCard from "./shared/components/JobCard";
 import SearchSection from "./shared/components/SearchSection/SearchSection";
 
 const App = () => {
@@ -9,8 +12,10 @@ const App = () => {
       <div className="App-Wrapper">
         <Header />
         <SearchSection />
-        <div style={{ padding: "10px 20px" }}>
-          <p>Please show a list of jobs as per design</p>
+        <div style={{ padding: "var(--m)" }}>
+          <p>1231 jobs found</p>
+          <Divider />
+          <JobCard job={mockJob} />
         </div>
       </div>
     </div>
