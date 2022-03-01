@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import React from "react";
 import { Job } from "../../../types/Job";
 import Divider from "../Divider";
@@ -8,8 +10,9 @@ interface JobCardProps {
   job: Job;
 }
 
+dayjs.extend(relativeTime);
 const JobCard = ({ job }: JobCardProps) => {
-  const updatedAt = new Date(job.updated_at);
+  const updatedAt = dayjs(job.updated_at);
   return (
     <div>
       <Divider />
@@ -30,7 +33,7 @@ const JobCard = ({ job }: JobCardProps) => {
           />
           <p className="CompanyName">{job.company_name}</p>
         </Row>
-        <p className="TimeString">{updatedAt.toTimeString()}</p>
+        <p className="TimeString">{updatedAt.fromNow()}</p>
       </Row>
     </div>
   );
