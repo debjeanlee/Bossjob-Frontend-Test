@@ -17,7 +17,7 @@ const App = () => {
           <p>1231 jobs found</p>
           <Divider style={{ marginBottom: "var(--m)" }} />
           <JobCard job={mockJob} />
-          <Pagination totalPages={12} />
+          <Pagination />
         </div>
       </div>
     </div>

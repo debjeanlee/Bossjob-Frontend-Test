@@ -3,71 +3,67 @@ import "./Pagination.css";
 
 interface PaginationProps {
   totalPages: number;
-  onPageClick?: (page: number) => void;
+  currentPage: number;
+  onPageClick: (page: number) => void;
+  onNextClick: () => void;
+  onPrevClick: () => void;
 }
 
 const limit = 5;
 const ellipsesOffset = 2;
 
-const Pagination = ({ totalPages, onPageClick }: PaginationProps) => {
-  const [selectedPage, setSelectedPage] = useState<number>(1);
+const Pagination = ({
+  totalPages,
+  currentPage,
+  onNextClick,
+  onPrevClick,
+  onPageClick,
+}: PaginationProps) => {
   const [numbersShowing, setNumbersShowing] = useState<number[]>([]);
 
   useEffect(() => {
     const getPages = () => {
       let startPage: number;
-
-      if (selectedPage + limit > totalPages) {
-        startPage = totalPages - limit + 1;
+      if (totalPages > limit) {
+        if (currentPage + limit > totalPages) {
+          startPage = totalPages - limit + 1;
+          return Array.from(Array(limit)).map((_, i) => startPage + i);
+        }
+        if (currentPage <= limit - ellipsesOffset) {
+          startPage = 1;
+          return Array.from(Array(limit)).map((_, i) => startPage + i);
+        }
+        if (currentPage >= totalPages - ellipsesOffset) {
+          startPage = totalPages - limit + 1;
+          return Array.from(Array(limit)).map((_, i) => startPage + i);
+        }
+        if (currentPage - ellipsesOffset > 1) {
+          startPage = currentPage - 1;
+          return Array.from(Array(limit - ellipsesOffset)).map(
+            (_, i) => startPage + i
+          );
+        }
+        startPage = currentPage - ellipsesOffset;
         return Array.from(Array(limit)).map((_, i) => startPage + i);
-      }
-      if (selectedPage <= limit - ellipsesOffset) {
+      } else {
         startPage = 1;
-        return Array.from(Array(limit)).map((_, i) => startPage + i);
+        return Array.from(Array(totalPages)).map((_, i) => startPage + i);
       }
-      if (selectedPage >= totalPages - ellipsesOffset) {
-        startPage = totalPages - limit + 1;
-        return Array.from(Array(limit)).map((_, i) => startPage + i);
-      }
-      if (selectedPage - ellipsesOffset > 1) {
-        startPage = selectedPage - 1;
-        return Array.from(Array(limit - ellipsesOffset)).map(
-          (_, i) => startPage + i
-        );
-      }
-      startPage = selectedPage - ellipsesOffset;
-      return Array.from(Array(limit)).map((_, i) => startPage + i);
     };
+
     setNumbersShowing(getPages());
-  }, [selectedPage, totalPages]);
+  }, [currentPage, totalPages]);
 
   const handlePageClick = (e: React.MouseEvent<HTMLLIElement>) => {
     const target = e.target as HTMLLIElement;
-    setSelectedPage(Number(target.id));
-    onPageClick?.(Number(target.id));
-  };
-
-  const handlePrevClick = () => {
-    if (selectedPage > 1) {
-      const next = selectedPage - 1;
-      setSelectedPage(next);
-      onPageClick?.(next);
-    }
-  };
-
-  const handleNextClick = () => {
-    if (selectedPage < totalPages) {
-      const next = selectedPage + 1;
-      setSelectedPage(next);
-      onPageClick?.(next);
-    }
+    onPageClick(Number(target.id));
   };
 
   const renderPageNumbers = numbersShowing.map((page) => (
     <li
       key={page}
       onClick={handlePageClick}
-      className={`${selectedPage === page ? "selected" : ""}`}
+      className={`${currentPage === page ? "selected" : ""}`}
       id={page.toString()}
     >
       {page}
@@ -77,21 +73,23 @@ const Pagination = ({ totalPages, onPageClick }: PaginationProps) => {
   return (
     <ul className="PaginationWrapper">
       <li
-        className={`${selectedPage > 1 ? "selected" : ""}`}
-        onClick={handlePrevClick}
+        className={`${currentPage > 1 ? "selected" : ""}`}
+        onClick={onPrevClick}
       >
         &#8249;
       </li>
-      {selectedPage > ellipsesOffset && selectedPage > limit - ellipsesOffset && (
-        <>
-          <li id="1" onClick={handlePageClick}>
-            1
-          </li>
-          <li>&hellip;</li>
-        </>
-      )}
+      {totalPages > limit &&
+        currentPage > ellipsesOffset &&
+        currentPage > limit - ellipsesOffset && (
+          <>
+            <li id="1" onClick={handlePageClick}>
+              1
+            </li>
+            <li>&hellip;</li>
+          </>
+        )}
       {renderPageNumbers}
-      {!(selectedPage + limit > totalPages) && (
+      {totalPages > limit && !(currentPage + limit > totalPages) && (
         <>
           <li>&hellip;</li>
           <li id={totalPages.toString()} onClick={handlePageClick}>
@@ -100,8 +98,8 @@ const Pagination = ({ totalPages, onPageClick }: PaginationProps) => {
         </>
       )}
       <li
-        className={`${selectedPage < totalPages ? "selected" : ""}`}
-        onClick={handleNextClick}
+        className={`${currentPage < totalPages ? "selected" : ""}`}
+        onClick={onNextClick}
       >
         &#8250;
       </li>
