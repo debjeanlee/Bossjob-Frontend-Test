@@ -1,3 +1,3 @@
-import SearchSection from "./SearchSection";
+import SearchContainer from "./SearchContainer";
 
-export default SearchSection;
+export default SearchContainer;

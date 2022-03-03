@@ -5,12 +5,16 @@ import Divider from "../Divider";
 import Input from "../Input";
 import "./SearchSection.css";
 
-const SearchSection = () => {
+interface SearchProps {
+  onSearch: (query: string) => void;
+}
+
+const SearchSection = ({ onSearch }: SearchProps) => {
   const [input, setInput] = useState<string>("");
 
   const submitForm = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log("form submitted", input);
+    onSearch(input);
   };
 
   return (

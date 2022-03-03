@@ -1,22 +1,20 @@
 import React from "react";
 import "./App.css";
-import { mockJob } from "./mocks/mockJob";
-import Divider from "./shared/components/Divider";
 import Header from "./shared/components/Header";
-import JobCard from "./shared/components/JobCard";
+import ListingContainer from "./shared/components/JobListing/ListingContainer";
 import Pagination from "./shared/components/Pagination";
-import SearchSection from "./shared/components/SearchSection/SearchSection";
+import SearchContainer from "./shared/components/SearchSection";
+import TotalJobsContainer from "./shared/components/TotalJobs";
 
 const App = () => {
   return (
     <div className="App">
       <div className="App-Wrapper">
         <Header />
-        <SearchSection />
+        <SearchContainer />
         <div style={{ padding: "var(--l)" }}>
-          <p>1231 jobs found</p>
-          <Divider style={{ marginBottom: "var(--m)" }} />
-          <JobCard job={mockJob} />
+          <TotalJobsContainer />
+          <ListingContainer />
           <Pagination />
         </div>
       </div>
