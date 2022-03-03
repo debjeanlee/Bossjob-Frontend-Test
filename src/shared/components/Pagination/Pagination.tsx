@@ -7,6 +7,8 @@ interface PaginationProps {
   onPageClick: (page: number) => void;
   onNextClick: () => void;
   onPrevClick: () => void;
+  fetchJobs: (page: number, query: string) => void;
+  query: string;
 }
 
 const limit = 5;
@@ -18,6 +20,8 @@ const Pagination = ({
   onNextClick,
   onPrevClick,
   onPageClick,
+  query,
+  fetchJobs,
 }: PaginationProps) => {
   const [numbersShowing, setNumbersShowing] = useState<number[]>([]);
 
@@ -56,7 +60,21 @@ const Pagination = ({
 
   const handlePageClick = (e: React.MouseEvent<HTMLLIElement>) => {
     const target = e.target as HTMLLIElement;
-    onPageClick(Number(target.id));
+    const page = Number(target.id);
+    onPageClick(page);
+    fetchJobs(page, query);
+  };
+  const handleNextClick = () => {
+    if (currentPage < totalPages) {
+      fetchJobs(currentPage + 1, query);
+    }
+    onNextClick();
+  };
+  const handlePrevClick = () => {
+    if (currentPage > 1) {
+      fetchJobs(currentPage, query);
+    }
+    onPrevClick();
   };
 
   const renderPageNumbers = numbersShowing.map((page) => (
@@ -70,11 +88,15 @@ const Pagination = ({
     </li>
   ));
 
+  if (totalPages < 2) {
+    return <></>;
+  }
+
   return (
     <ul className="PaginationWrapper">
       <li
         className={`${currentPage > 1 ? "selected" : ""}`}
-        onClick={onPrevClick}
+        onClick={handlePrevClick}
       >
         &#8249;
       </li>
@@ -99,7 +121,7 @@ const Pagination = ({
       )}
       <li
         className={`${currentPage < totalPages ? "selected" : ""}`}
-        onClick={onNextClick}
+        onClick={handleNextClick}
       >
         &#8250;
       </li>
