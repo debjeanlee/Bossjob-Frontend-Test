@@ -23,7 +23,7 @@
   display: grid;
   row-gap: var(--s);
   column-gap: var(--s);
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 1fr;
   margin: var(--l) 0;
 }
 

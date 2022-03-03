@@ -1,7 +1,6 @@
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import React from "react";
-import { Job } from "../../../types/Job";
 import Divider from "../Divider";
 import IconLabel from "../IconLabel";
 import Row from "../Row";
@@ -10,6 +9,7 @@ import { ReactComponent as Briefcase } from "../../../assets/icons/Briefcase.svg
 import { ReactComponent as AcademicCap } from "../../../assets/icons/AcademicCap.svg";
 import { ReactComponent as Clock } from "../../../assets/icons/Clock.svg";
 import "./JobCard.css";
+import { Job } from "../../../store/jobs/types";
 
 interface JobCardProps {
   job: Job;
