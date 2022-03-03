@@ -1,7 +1,13 @@
+export interface PaginationState {
+  totalPages: number;
+  currentPage: number;
+}
+
 export enum PaginationActionType {
   INCREMENT = "INCREMENT",
   DECREMENT = "DECREMENT",
   SELECT = "SELECT",
+  SET_TOTAL = "SET_TOTAL",
 }
 
 export interface IncrementPage {
@@ -17,4 +23,13 @@ export interface SelectPage {
   payload: number;
 }
 
-export type PaginationAction = IncrementPage | DecrementPage | SelectPage;
+export interface SetTotalPages {
+  type: PaginationActionType.SET_TOTAL;
+  payload: number;
+}
+
+export type PaginationAction =
+  | IncrementPage
+  | DecrementPage
+  | SelectPage
+  | SetTotalPages;

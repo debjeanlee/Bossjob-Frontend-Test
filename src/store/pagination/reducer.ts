@@ -1,12 +1,11 @@
-import { PaginationAction, PaginationActionType } from "./types";
-
-export interface PaginationState {
-  totalPages: number;
-  currentPage: number;
-}
+import {
+  PaginationAction,
+  PaginationActionType,
+  PaginationState,
+} from "./types";
 
 const initialState: PaginationState = {
-  totalPages: 10,
+  totalPages: 0,
   currentPage: 1,
 };
 
@@ -27,6 +26,8 @@ const paginationReducer = (
       return { ...state, currentPage: prevPage };
     case PaginationActionType.SELECT:
       return { ...state, currentPage: action.payload };
+    case PaginationActionType.SET_TOTAL:
+      return { ...state, totalPages: action.payload };
     default:
       return state;
   }
