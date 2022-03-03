@@ -11,6 +11,10 @@
   text-align: center;
 }
 
+.PaginationWrapper li:hover {
+  cursor: pointer;
+}
+
 .PaginationWrapper .selected {
   color: var(--blue);
 }
