@@ -3,7 +3,7 @@ import { JobAction, JobActionType, JobsState } from "./types";
 const initialState: JobsState = {
   jobs: [],
   total: 0,
-  query: "hr",
+  query: "",
 };
 
 const jobReducer = (

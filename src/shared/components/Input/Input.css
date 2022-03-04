@@ -5,6 +5,7 @@
   font-family: var(--font-main);
   font-weight: var(--heavy);
   letter-spacing: 0.3px;
+  background-color: inherit;
 }
 
 .SearchInput:focus {
